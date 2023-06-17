@@ -1,0 +1,679 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/16/2023 1:11:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-TLVC88K"
+  DTS:CreatorName="DESKTOP-TLVC88K\Mina"
+  DTS:DTSID="{D44CB7CF-6D21-46A5-9F01-D664091A75A7}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="21- Loop Departments"
+  DTS:PackageType="5"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{45059B06-A59B-49B4-BFAC-ABEB5B5A382F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Department FF]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3C2F502B-3261-4989-B413-3BED52E7C9DC}"
+      DTS:ObjectName="Department FF">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">""+ @[User::FolderPath]+"\\Department"+ (DT_WSTR, 12) @[User::LoopCounter]+".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Mina\Desktop\LoopFile\Department1.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FinanceKey"
+              DTS:DTSID="{0D4B867B-F923-4515-B058-36E60634DF66}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateKey"
+              DTS:DTSID="{C68BF354-1E8A-4DFE-A0FD-498D8DA8CBC9}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OrganizationKey"
+              DTS:DTSID="{5B5CCDA3-F5E3-4058-877E-4B54D3C916A3}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DepartmentGroupKey"
+              DTS:DTSID="{BB118591-2C1F-4386-9587-3890B5113155}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ScenarioKey"
+              DTS:DTSID="{51A0D8B6-2EDF-4F2F-92D5-17AC91E41020}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="AccountKey"
+              DTS:DTSID="{5A85FBCB-9EF1-4CB7-AC11-E7F42152D8AE}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Amount"
+              DTS:DTSID="{1FAF6E9E-09D6-4DC8-84EF-460C72E38725}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="135"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Date"
+              DTS:DTSID="{D8ED66B1-465F-4609-9C2A-CA0150ABFC0E}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6584BEF9-C29B-4628-9A74-8F3505A82613}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Mina\Desktop\LoopFile</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{91295B08-1A6B-4A2C-9302-0303B42C6F35}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LoopCounter">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7AE65D1F-76AC-4FCC-B0DE-4074D1FBB668}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="MaxDepNum">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Get Max Department Number"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{24AA37B9-037B-4235-8251-50EC3FE64463}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Get Max Department Number"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{1B234D21-5555-460C-B821-1B5F24EC6225}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource=" SELECT MAX(DepartmentGroupKey) FROM [AdventureWorksDW2014].[dbo].[FactFinance]&#xA;"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::MaxDepNum" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loop For Each Department"
+      DTS:AssignExpression="@LoopCounter = @LoopCounter +1"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="For Loop Container"
+      DTS:DTSID="{57BBD555-F384-4FDA-954E-94DAA8E9BFA1}"
+      DTS:EvalExpression="@LoopCounter &lt;= @MaxDepNum"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@LoopCounter =1 "
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="Loop For Each Department">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Loop For Each Department\Get Data For Each Dep"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{876B86F5-BFD2-447E-88D2-27D2E3BF54E5}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Get Data For Each Dep"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="Extract Data From DB"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TOP(1000) * FROM 
+[AdventureWorksDW2014].[dbo].[FactFinance] 
+WHERE DepartmentGroupKey = ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"0:Input",{91295B08-1A6B-4A2C-9302-0303B42C6F35};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Connections[OleDbConnection]"
+                      connectionManagerID="{1B234D21-5555-460C-B821-1B5F24EC6225}:external"
+                      connectionManagerRefId="Project.ConnectionManagers[AdvantureDWH Connection]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[FinanceKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[FinanceKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[FinanceKey]"
+                          name="FinanceKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[DateKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[DateKey]"
+                          name="DateKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[OrganizationKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[OrganizationKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[OrganizationKey]"
+                          name="OrganizationKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[DepartmentGroupKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[DepartmentGroupKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[DepartmentGroupKey]"
+                          name="DepartmentGroupKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[ScenarioKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[ScenarioKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[ScenarioKey]"
+                          name="ScenarioKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[AccountKey]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[AccountKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[AccountKey]"
+                          name="AccountKey"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[Amount]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[Amount]"
+                          name="Amount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[Date]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[Date]"
+                          name="Date"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[FinanceKey]"
+                          dataType="i4"
+                          name="FinanceKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[DateKey]"
+                          dataType="i4"
+                          name="DateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[OrganizationKey]"
+                          dataType="i4"
+                          name="OrganizationKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[DepartmentGroupKey]"
+                          dataType="i4"
+                          name="DepartmentGroupKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[ScenarioKey]"
+                          dataType="i4"
+                          name="ScenarioKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[AccountKey]"
+                          dataType="i4"
+                          name="AccountKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                          dataType="r8"
+                          name="Amount" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                          dataType="dbTimeStamp"
+                          name="Date" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[FinanceKey]"
+                          dataType="i4"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[FinanceKey]"
+                          name="FinanceKey" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                          dataType="i4"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[DateKey]"
+                          name="DateKey" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[OrganizationKey]"
+                          dataType="i4"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[OrganizationKey]"
+                          name="OrganizationKey" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[DepartmentGroupKey]"
+                          dataType="i4"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[DepartmentGroupKey]"
+                          name="DepartmentGroupKey" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[ScenarioKey]"
+                          dataType="i4"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[ScenarioKey]"
+                          name="ScenarioKey" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[AccountKey]"
+                          dataType="i4"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[AccountKey]"
+                          name="AccountKey" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                          dataType="r8"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                          name="Amount" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[Date]"
+                          dataType="dbTimeStamp"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[Date]"
+                          name="Date" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Load Data Into FF"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Department FF]"
+                      connectionManagerRefId="Package.ConnectionManagers[Department FF]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].Columns[FinanceKey]"
+                          cachedDataType="i4"
+                          cachedName="FinanceKey"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[FinanceKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[FinanceKey]" />
+                        <inputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].Columns[DateKey]"
+                          cachedDataType="i4"
+                          cachedName="DateKey"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[DateKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[DateKey]" />
+                        <inputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].Columns[OrganizationKey]"
+                          cachedDataType="i4"
+                          cachedName="OrganizationKey"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[OrganizationKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[OrganizationKey]" />
+                        <inputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].Columns[DepartmentGroupKey]"
+                          cachedDataType="i4"
+                          cachedName="DepartmentGroupKey"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[DepartmentGroupKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[DepartmentGroupKey]" />
+                        <inputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].Columns[ScenarioKey]"
+                          cachedDataType="i4"
+                          cachedName="ScenarioKey"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[ScenarioKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[ScenarioKey]" />
+                        <inputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].Columns[AccountKey]"
+                          cachedDataType="i4"
+                          cachedName="AccountKey"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[AccountKey]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[AccountKey]" />
+                        <inputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].Columns[Amount]"
+                          cachedDataType="r8"
+                          cachedName="Amount"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[Amount]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[Amount]" />
+                        <inputColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].Columns[Date]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="Date"
+                          externalMetadataColumnId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[Date]"
+                          lineageId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output].Columns[Date]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[FinanceKey]"
+                          dataType="i4"
+                          name="FinanceKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[DateKey]"
+                          dataType="i4"
+                          name="DateKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[OrganizationKey]"
+                          dataType="i4"
+                          name="OrganizationKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[DepartmentGroupKey]"
+                          dataType="i4"
+                          name="DepartmentGroupKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[ScenarioKey]"
+                          dataType="i4"
+                          name="ScenarioKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[AccountKey]"
+                          dataType="i4"
+                          name="AccountKey" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[Amount]"
+                          dataType="r8"
+                          name="Amount" />
+                        <externalMetadataColumn
+                          refId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input].ExternalColumns[Date]"
+                          dataType="dbTimeStamp"
+                          name="Date" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Loop For Each Department\Get Data For Each Dep.Paths[OLE DB Source Output]"
+                  endId="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{FD9DDC36-67AB-47FC-8D30-FBE2000E67C0}"
+      DTS:From="Package\Get Max Department Number"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Loop For Each Department" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="218.666666666667,42"
+          Id="Package\Get Max Department Number"
+          TopLeft="221.874996693805,79.9499985703826" />
+        <NodeLayout
+          Size="188,42.6666666666667"
+          Id="Package\Loop For Each Department\Get Data For Each Dep"
+          TopLeft="34.4999963367981,37.5555510097081" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="245.333333333334,137.333333333334"
+          Size="245.333333333334,180.666666666667"
+          Id="Package\Loop For Each Department"
+          TopLeft="211.18055240872,174.127774664131" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="332.527774551263,121.949998570383">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.177776093748"
+              Start="0,0"
+              End="0,44.677776093748">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.677776093748" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Loop For Each Department\Get Data For Each Dep">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="182.666666666667,42.6666666666667"
+          Id="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB"
+          TopLeft="344,70.6666666666666" />
+        <NodeLayout
+          Size="165.333333333334,42.6666666666667"
+          Id="Package\Loop For Each Department\Get Data For Each Dep\Load Data Into FF"
+          TopLeft="209.666666666667,178.333333333333" />
+        <EdgeLayout
+          Id="Package\Loop For Each Department\Get Data For Each Dep.Paths[OLE DB Source Output]"
+          TopLeft="435.333333333333,113.333333333333">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-143,65"
+              Start="0,0"
+              End="-143,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="-4,32.5" />
+                  <mssgle:LineSegment
+                    End="-139,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-139,32.5"
+                    Point2="-143,32.5"
+                    Point3="-143,36.5" />
+                  <mssgle:LineSegment
+                    End="-143,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loop For Each Department\Get Data For Each Dep\Extract Data From DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
